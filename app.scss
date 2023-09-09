@@ -1,0 +1,53 @@
+@function calculateRem($num) {
+  @return $num * 0.0625rem;
+}
+
+.app {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    padding: 5px 10px;
+    .logo-container {
+      .logo {
+        width: 80px;
+      }
+    }
+    .nav {
+      .nav-items {
+        display: flex;
+        list-style-type: none;
+        font-size: 17px;
+        li {
+          padding: 0px 10px;
+        }
+      }
+    }
+  }
+
+  .body-container {
+    padding: 0.125rem;
+    .search {
+      padding: calculateRem(5);
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: calculateRem(5);
+      justify-content: space-between;
+      .card {
+        width: calculateRem(200);
+        background-color: rgb(219, 218, 218);
+        padding: calculateRem(2);
+        margin: calculateRem(5);
+        .card-img {
+          width: 100%;
+        }
+      }
+      .card:hover {
+        border: 1px solid black;
+      }
+    }
+  }
+}
