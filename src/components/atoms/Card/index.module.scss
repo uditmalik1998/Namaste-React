@@ -1,7 +1,18 @@
-.card{
-    .card-img{
-       :hover{
-        
-       }
+@function calculateRem($num) {
+  @return $num * 0.0625rem;
+}
+
+.card {
+  border-radius: 0.5rem;
+  height: auto;
+  .card-img {
+    :hover {
     }
+  }
+  .minicard {
+    padding: calculateRem(10);
+    p {
+      margin: calculateRem(4.8);
+    }
+  }
 }
