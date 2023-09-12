@@ -21,49 +21,63 @@ const Body = () => {
           response?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle
             ?.restaurants
         );
+        setFilteredList(
+          response?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+        );
       }
     };
+    // fetachRestaurantList();
   }, []);
 
   const highRated = () => {
     const filteredData = restaurantList.filter((item) => {
       return item.info.avgRating > 4;
     });
-    setRestaurantList(filteredData);
+    setFilteredList(filteredData);
   };
-
+  console.log("Render");
   return (
-    <div className="body-container">
-      <div>
-        <div>
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => {
-              setSearchQuery(e.target.value);
-            }}
-          />
-          <button
-            onClick={() => {
-              const filterData = restaurantList.filter((item) => {
-                return item.info.name
-                  .toLowerCase()
-                  .includes(searchQuery.toLowerCase());
-              });
-              setFilteredList(filterData);
-            }}
-          >
-            Search
-          </button>
+    <>
+      {restaurantList.length < 1 ? (
+        <h1>Loading....</h1>
+      ) : (
+        <div className="body-container">
+          <div>
+            <div>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  if (searchQuery.length === 1) {
+                    setFilteredList(restaurantList);
+                  }
+                }}
+              />
+              <button
+                onClick={() => {
+                  const filterData = restaurantList.filter((item) => {
+                    return item.info.name
+                      .toLowerCase()
+                      .includes(searchQuery.toLowerCase());
+                  });
+                  setFilteredList(filterData);
+                }}
+              >
+                Search
+              </button>
+            </div>
+            <button onClick={() => highRated()}>Higher Rated</button>
+          </div>
+          <div className="card-container">
+            {filteredList.map((item) => (
+              <Card key={item.info.id} resData={item} />
+            ))}
+          </div>
         </div>
-        <button onClick={() => highRated()}>Higher Rated</button>
-      </div>
-      <div className="card-container">
-        {filteredList.map((item) => (
-          <Card key={item.info.id} resData={item} />
-        ))}
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
