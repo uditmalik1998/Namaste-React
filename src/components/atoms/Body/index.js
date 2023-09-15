@@ -1,11 +1,12 @@
 import resObj from "../../../utils/mockdata";
 import { useState, useEffect } from "react";
 import Card from "../Card";
+import {Link} from 'react-router-dom';
 
 const Body = () => {
-  const [restaurantList, setRestaurantList] = useState(resObj);
+  const [restaurantList, setRestaurantList] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredList, setFilteredList] = useState(resObj);
+  const [filteredList, setFilteredList] = useState([]);
 
   useEffect(() => {
     const fetachRestaurantList = async () => {
@@ -27,7 +28,7 @@ const Body = () => {
         );
       }
     };
-    // fetachRestaurantList();
+    fetachRestaurantList();
   }, []);
 
   const highRated = () => {
@@ -72,7 +73,7 @@ const Body = () => {
           </div>
           <div className="card-container">
             {filteredList.map((item) => (
-              <Card key={item.info.id} resData={item} />
+              <Link to={`/restaurant/${item.info.id}`} key={item.info.id}><Card resData={item} /></Link>
             ))}
           </div>
         </div>

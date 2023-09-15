@@ -6,12 +6,14 @@ import Body from "./src/components/atoms/Body";
 import Error from "./src/components/atoms/Error";
 import About from "./src/components/screen/About";
 import "./app.scss";
+import ContactUs from "./src/components/screen/ContactUs";
+import RestaurantItem from "./src/components/screen/RestaurantItem";
 
 const AppLayout = () => {
   return (
     <div className="app">
       <Header />
-      <Outlet/>
+      <Outlet />
     </div>
   );
 };
@@ -29,8 +31,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About/>,
+        element: <About />,
       },
+      {
+        path: "/contact-us",
+        element: <ContactUs />,
+      },
+      { path: "/restaurant/:resId", element: <RestaurantItem /> },
     ],
     errorElement: <Error />,
   },
