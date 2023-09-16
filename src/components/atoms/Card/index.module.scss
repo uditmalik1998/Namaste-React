@@ -5,14 +5,21 @@
 .card {
   border-radius: 0.5rem;
   height: auto;
-  .card-img {
-    :hover {
-    }
+  .img_card {
+    overflow: hidden;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
   }
+
   .minicard {
     padding: calculateRem(10);
     p {
       margin: calculateRem(4.8);
+    }
+    .cuisines {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }

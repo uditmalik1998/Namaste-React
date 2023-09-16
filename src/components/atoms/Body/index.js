@@ -1,7 +1,8 @@
 import resObj from "../../../utils/mockdata";
 import { useState, useEffect } from "react";
 import Card from "../Card";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
+import styles from "./index.module.scss";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -73,7 +74,13 @@ const Body = () => {
           </div>
           <div className="card-container">
             {filteredList.map((item) => (
-              <Link to={`/restaurant/${item.info.id}`} key={item.info.id}><Card resData={item} /></Link>
+              <Link
+                className={styles.rescard}
+                to={`/restaurant/${item.info.id}`}
+                key={item.info.id}
+              >
+                <Card resData={item} />
+              </Link>
             ))}
           </div>
         </div>

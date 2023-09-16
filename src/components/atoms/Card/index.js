@@ -11,10 +11,15 @@ const Card = (props) => {
 
   return (
     <div className={`${styles.card} card`}>
-      <img className="card-img" src={`${IMG_CARD_URL}/${cloudinaryImageId}`} />
+      <div className={styles.img_card}>
+        <img
+          className="card-img"
+          src={`${IMG_CARD_URL}/${cloudinaryImageId}`}
+        />
+      </div>
       <div className={styles.minicard}>
         <p>{name}</p>
-        <p>{cuisines.join(", ")}</p>
+        <p className={styles.cuisines}>{cuisines.join(", ")}</p>
         <p>{avgRating} star</p>
       </div>
     </div>
