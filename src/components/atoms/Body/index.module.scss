@@ -1,8 +1,16 @@
-// .body-container{
-//     .card-container{
-        .rescard{
-            text-decoration: none;
-            color:#433939;
-        }
-//     }
-// }
+.search_container {
+  display: flex;
+  justify-content: center;
+  .inputtxt {
+    input {
+      width: 15rem;
+      padding: 0.8rem;
+      border-radius: 0.5rem;
+      border: 2px solid grey;
+    }
+  }
+}
+.rescard {
+  text-decoration: none;
+  color: #433939;
+}

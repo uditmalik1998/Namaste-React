@@ -2,6 +2,7 @@ import resObj from "../../../utils/mockdata";
 import { useState, useEffect } from "react";
 import Card from "../Card";
 import { Link } from "react-router-dom";
+import Button from "../Button";
 import styles from "./index.module.scss";
 
 const Body = () => {
@@ -38,15 +39,15 @@ const Body = () => {
     });
     setFilteredList(filteredData);
   };
-  console.log("Render");
+
   return (
     <>
       {restaurantList.length < 1 ? (
         <h1>Loading....</h1>
       ) : (
         <div className="body-container">
-          <div>
-            <div>
+          <div className={styles.search_container}>
+            <div className={styles.inputtxt}>
               <input
                 type="text"
                 value={searchQuery}
@@ -57,7 +58,7 @@ const Body = () => {
                   }
                 }}
               />
-              <button
+              <Button
                 onClick={() => {
                   const filterData = restaurantList.filter((item) => {
                     return item.info.name
@@ -66,11 +67,13 @@ const Body = () => {
                   });
                   setFilteredList(filterData);
                 }}
-              >
-                Search
-              </button>
+                btntext={"Search"}
+              ></Button>
             </div>
-            <button onClick={() => highRated()}>Higher Rated</button>
+            <Button
+              onClick={() => highRated()}
+              btntext={"Higher Rated"}
+            ></Button>
           </div>
           <div className="card-container">
             {filteredList.map((item) => (
