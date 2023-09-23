@@ -1,7 +1,8 @@
+import React from "react";
 import { IMG_CARD_URL } from "../../../utils/constants";
 import styles from "./index.module.scss";
 
-const Card = (props) => {
+const Card = (props:any) => {
   const {
     name = "",
     avgRating = "",

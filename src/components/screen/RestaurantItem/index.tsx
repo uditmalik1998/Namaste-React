@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { ENDPOINTS } from "../../../utils/constants";
 import { useParams } from "react-router-dom";
 
 const RestaurantItem = () => {
-  const [apiData, setApiData] = useState([]);
+  const [apiData, setApiData] = useState<any>([]);
   const { resId } = useParams();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const RestaurantItem = () => {
 
   return (
     <div>
-      {apiData.map((item) => (
+      {apiData.map((item:any) => (
         <div key={item?.card?.info?.id}>
           <h2>{item?.card?.info?.name}</h2>
           <p>

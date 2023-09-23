@@ -1,7 +1,8 @@
+import React from 'react';
 import { useRouteError } from "react-router-dom";
 
-const Error = () => {
-  const error = useRouteError();
+const ErrorBoundary = () => {
+  const error:any = useRouteError();
   return (
     <>
       <h2>{error.data}</h2>
@@ -12,4 +13,4 @@ const Error = () => {
   );
 };
 
-export default Error;
+export default ErrorBoundary;

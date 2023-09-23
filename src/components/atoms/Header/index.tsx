@@ -1,5 +1,5 @@
 import { LOGO_URL } from "../../../utils/constants";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from './index.module.scss';
 
