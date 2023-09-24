@@ -2,24 +2,49 @@
   @return $num * 0.0625rem;
 }
 
-.card {
-  border-radius: 0.5rem;
-  height: auto;
-  .img_card {
-    overflow: hidden;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+.card_container {
+  width:16.5rem;
+  a{
+    text-decoration: none;
   }
-
-  .minicard {
-    padding: calculateRem(10);
-    p {
-      margin: calculateRem(4.8);
-    }
-    .cuisines {
-      white-space: nowrap;
+  .card {
+    border-radius: 0.5rem;
+    height: auto;
+    .img_card {
       overflow: hidden;
-      text-overflow: ellipsis;
+      .card_img {
+        height: 15rem;
+        width: 100%;
+        border-radius: 0.5rem;
+      }
+    }
+
+    .minicard {
+      padding:0.625rem 0 0 0.3rem;
+      font-weight: bold;
+      color:#02060cbf;
+      p {
+        margin: calculateRem(4.8);
+      }
+      .cuisines {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 100;
+        color:#02060c99;
+      }
+      .mincard_rating {
+        display: flex;
+        align-items: center;
+        margin: calculateRem(4.8);
+        .rating_svg {
+          width: calculateRem(16);
+          background-color: green;
+          color: white;
+          padding: calculateRem(3);
+          border-radius: 50%;
+        }
+      }
     }
   }
 }

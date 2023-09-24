@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       {
         path: "/contact-us",
         element: (
-          <Suspense fallback={<h1>Contact Us FallBack</h1>}>
+          <Suspense fallback={<h1>Loading...</h1>}>
             <Contact_us />
           </Suspense>
         ),
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: (
-          <Suspense fallback={<h2>Loading2...</h2>}>
+          <Suspense fallback={<h2>Loading...</h2>}>
             <RestaurantItem />
           </Suspense>
         ),

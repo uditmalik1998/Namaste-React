@@ -3,13 +3,13 @@ import React, { useState, useEffect } from "react";
 import Card from "../Card";
 import { Link } from "react-router-dom";
 import Button from "../Button";
-import useOnlineStatus from '../../../utils/hooks/useOnlineStatus';
+import useOnlineStatus from "../../../utils/hooks/useOnlineStatus";
 import styles from "./index.module.scss";
 
 const Body = () => {
-  const [restaurantList, setRestaurantList] = useState(resObj);
+  const [restaurantList, setRestaurantList] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredList, setFilteredList] = useState(resObj);
+  const [filteredList, setFilteredList] = useState([]);
 
   useEffect(() => {
     const fetachRestaurantList = async () => {
@@ -31,17 +31,18 @@ const Body = () => {
         );
       }
     };
-    // fetachRestaurantList();
+    fetachRestaurantList();
   }, []);
 
   const highRated = () => {
-    const filteredData = restaurantList.filter((item:any) => {
+    const filteredData = restaurantList.filter((item: any) => {
       return item.info.avgRating > 4;
     });
     setFilteredList(filteredData);
   };
   const onlineStatus = useOnlineStatus();
-  console.log(onlineStatus, '***')
+  console.log(onlineStatus, "***");
+
   return (
     <>
       {restaurantList.length < 1 ? (
@@ -62,7 +63,7 @@ const Body = () => {
               />
               <Button
                 onClick={() => {
-                  const filterData = restaurantList.filter((item:any) => {
+                  const filterData = restaurantList.filter((item: any) => {
                     return item.info.name
                       .toLowerCase()
                       .includes(searchQuery.toLowerCase());
@@ -78,14 +79,14 @@ const Body = () => {
             ></Button>
           </div>
           <div className="card-container">
-            {filteredList.map((item:any) => (
-              <Link
-                className={styles.rescard}
-                to={`/restaurant/${item.info.id}`}
-                key={item.info.id}
-              >
+            {filteredList.map((item: any) => (
+              // <Link
+              //   className={styles.rescard}
+              //   to={`/restaurant/${item.info.id}`}
+              //   key={item.info.id}
+              // >
                 <Card resData={item} />
-              </Link>
+              // </Link>
             ))}
           </div>
         </div>

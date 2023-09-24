@@ -1,0 +1,28 @@
+.cardslider {
+  padding: 1px;
+  :global(.slick-slider .slick-prev) {
+    background-color: #e2e2e7;
+    top: 0%;
+    left: 90%;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+  :global(.slick-slider .slick-prev)::before {
+    color:#615d5d;
+  }
+  :global(.slick-slider .slick-list) {
+    padding-top: 2rem;
+  }
+  :global(.slick-slider .slick-next) {
+    background-color: #e2e2e7;
+    right: 5%;
+    top: 0%;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+  :global(.slick-slider .slick-next)::before {
+    color:#615d5d;
+  }
+}
