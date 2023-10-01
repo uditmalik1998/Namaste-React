@@ -1,0 +1,33 @@
+@import "../../../utils/partical/mixins";
+
+.mobcard {
+  display: flex;
+  .card_details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include toRem(margin-left, 14);
+    width: 100%;
+    .rest_tag {
+      display: flex;
+      justify-content: space-between;
+      .restaurantname {
+        color: #3e4152;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-weight: 600;
+      }
+    }
+    .restaurantmeta {
+      color: #696b79;
+      display: flex;
+      .restime {
+        @include toRem(margin-left, 10);
+      }
+      .resprice {
+        @include toRem(margin-left, 10);
+      }
+    }
+  }
+}

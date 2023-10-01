@@ -1,28 +1,56 @@
 .cardslider {
   padding: 1px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .cardHeading {
+    position: absolute;
+    top: -1.6875rem;
+    left: 2.9375rem;
+  }
+  .svg_arrow {
+    width: 18px;
+    height: 18px;
+  }
   :global(.slick-slider .slick-prev) {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
     background-color: #e2e2e7;
     top: 0%;
     left: 90%;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
+    color: black;
   }
   :global(.slick-slider .slick-prev)::before {
-    color:#615d5d;
+    content: "";
   }
   :global(.slick-slider .slick-list) {
     padding-top: 2rem;
   }
   :global(.slick-slider .slick-next) {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
     background-color: #e2e2e7;
-    right: 5%;
+    right: 4%;
     top: 0%;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
+    color: black;
   }
   :global(.slick-slider .slick-next)::before {
-    color:#615d5d;
+    content: "";
+  }
+  :global(.slick-slider .slick-list .slick-track .slick-slide) {
+    display: flex;
+    justify-content: center;
+  }
+  :global(.slick-slider .slick-disabled) {
+    background-color: #efeff2;
+    color: #e1dbdb;
   }
 }

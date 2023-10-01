@@ -12,7 +12,7 @@ const Card = (props: any) => {
     cloudinaryImageId = "",
     id = "",
   } = props?.resData?.info || "";
-  console.log(props);
+
   return (
     <div className={styles.card_container}>
       <Link to={`/restaurant/${id}`}>
@@ -24,7 +24,7 @@ const Card = (props: any) => {
             />
           </div>
           <div className={styles.minicard}>
-            <p>{name}</p>
+            <p className={styles.productname}>{name}</p>
             <div className={styles.mincard_rating}>
               <AiFillStar className={styles.rating_svg} />
               <p>{avgRating} star</p>

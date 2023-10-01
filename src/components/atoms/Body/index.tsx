@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Button from "../Button";
 import useOnlineStatus from "../../../utils/hooks/useOnlineStatus";
 import styles from "./index.module.scss";
+import HomeLayout from "../../molecules/HomeLayout";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -78,17 +79,7 @@ const Body = () => {
               btntext={"Higher Rated"}
             ></Button>
           </div>
-          <div className="card-container">
-            {filteredList.map((item: any) => (
-              // <Link
-              //   className={styles.rescard}
-              //   to={`/restaurant/${item.info.id}`}
-              //   key={item.info.id}
-              // >
-                <Card resData={item} />
-              // </Link>
-            ))}
-          </div>
+          <HomeLayout filteredList={filteredList}/>
         </div>
       )}
     </>

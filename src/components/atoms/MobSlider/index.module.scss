@@ -1,0 +1,14 @@
+.mobslidercont {
+  display: flex;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  white-space: nowrap;
+  .sliderrapper {
+    margin: 1rem;
+    .sliderimg {
+      width: 336px;
+      height: 220;
+      border-radius: 0.5rem;
+    }
+  }
+}

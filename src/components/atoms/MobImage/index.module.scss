@@ -1,0 +1,29 @@
+@import "../../../utils/partical/mixins";
+
+.mobimg_cont {
+  display: flex;
+  position: relative;
+  .mobimg {
+    .img {
+      @include toRem(width, 80);
+      @include toRem(height, 96);
+      @include toRem(border-radius, 8);
+    }
+  }
+  .restaurantdiscount {
+    position: absolute;
+    bottom: -8px;
+    background-color: #fff;
+    border-radius: 4px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    font-weight: bold;
+    color: #ed5e0e;
+    left: 4px;
+    border: 0.85px solid #e3e3e3;
+  }
+}
