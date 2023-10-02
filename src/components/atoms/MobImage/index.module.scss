@@ -7,7 +7,7 @@
   @include toRem(margin-bottom, 16);
   .mobimg {
     .img {
-      @include toRem(width, 80);
+      @include toRem(width, 88);
       @include toRem(height, 96);
       @include toRem(border-radius, 8);
     }
@@ -17,18 +17,19 @@
     bottom: -8px;
     background-color: #fff;
     border-radius: 4px;
-    font-size: 10px;
+    font-size: 14px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70px;
+    width: 76px;
     font-weight: bold;
     color: #ed5e0e;
     left: 4px;
     border: 0.85px solid #e3e3e3;
+    @include toRem(padding, 1);
     .restprice {
-      @include toRem(font-size, 9);
+      @include toRem(font-size, 10);
     }
   }
 }

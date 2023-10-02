@@ -23,10 +23,12 @@ const MobImage: FC<IMobImage> = (props: any) => {
         <div className={styles.mobimg}>
           <img className={styles.img} src={`${IMG_CARD_URL}/${imageId}`} />
         </div>
-        <div className={styles.restaurantdiscount}>
-          <div>{discountPercentage}</div>
-          <div className={styles.restprice}>{discountPrice}</div>
-        </div>
+        {discountPercentage && discountPrice ? (
+          <div className={styles.restaurantdiscount}>
+            <div>{discountPercentage}</div>
+            <div className={styles.restprice}>{discountPrice}</div>
+          </div>
+        ) : null}
       </Link>
     </div>
   );
