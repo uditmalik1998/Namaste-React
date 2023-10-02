@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import Header from "./src/components/atoms/Header";
-import Body from "./src/components/atoms/Body";
+import Body from "./src/components/screen/Home";
 import ErrorBoundary from "./src/components/atoms/Error";
 import "./app.scss";
 

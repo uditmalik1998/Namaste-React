@@ -3,6 +3,8 @@
 .mobimg_cont {
   display: flex;
   position: relative;
+  @include toRem(margin-top, 16);
+  @include toRem(margin-bottom, 16);
   .mobimg {
     .img {
       @include toRem(width, 80);
@@ -25,5 +27,8 @@
     color: #ed5e0e;
     left: 4px;
     border: 0.85px solid #e3e3e3;
+    .restprice {
+      @include toRem(font-size, 9);
+    }
   }
 }

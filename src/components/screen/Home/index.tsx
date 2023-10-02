@@ -1,16 +1,17 @@
 import resObj from "../../../utils/mockdata";
 import React, { useState, useEffect } from "react";
-import Card from "../Card";
-import { Link } from "react-router-dom";
-import Button from "../Button";
+import Button from "../../atoms/Button";
 import useOnlineStatus from "../../../utils/hooks/useOnlineStatus";
 import styles from "./index.module.scss";
-import HomeLayout from "../../molecules/HomeLayout";
+import HomeCardLayout from "../../molecules/HomeCardLayout";
+import useDeviceType from "../../../utils/hooks/useDeviceType";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredList, setFilteredList] = useState([]);
+  const [carousalData, setCarousalData] = useState([]);
+  const { deviceType } = useDeviceType();
 
   useEffect(() => {
     const fetachRestaurantList = async () => {
@@ -19,21 +20,41 @@ const Body = () => {
       );
       const response = await data.json();
       if (
+        deviceType === "desktop" &&
         response?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
       ) {
-        setRestaurantList(
+        setCarousalData(
           response?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle
             ?.restaurants
         );
+        setRestaurantList(
+          response?.data?.cards?.[5]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+        );
         setFilteredList(
-          response?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle
+          response?.data?.cards?.[5]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+        );
+      }
+      if (
+        deviceType !== "desktop" &&
+        response?.data?.cards?.[3]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      ) {
+        setFilteredList(
+          response?.data?.cards?.[3]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+        );
+        setRestaurantList(
+          response?.data?.cards?.[3]?.card?.card?.gridElements?.infoWithStyle
             ?.restaurants
         );
       }
     };
     fetachRestaurantList();
-  }, []);
+    console.log(deviceType);
+  }, [deviceType]);
 
   const highRated = () => {
     const filteredData = restaurantList.filter((item: any) => {
@@ -41,8 +62,6 @@ const Body = () => {
     });
     setFilteredList(filteredData);
   };
-  const onlineStatus = useOnlineStatus();
-  console.log(onlineStatus, "***");
 
   return (
     <>
@@ -79,7 +98,7 @@ const Body = () => {
               btntext={"Higher Rated"}
             ></Button>
           </div>
-          <HomeLayout filteredList={filteredList}/>
+          <HomeCardLayout filteredList={filteredList} deviceType={deviceType} carousalData={carousalData}/>
         </div>
       )}
     </>

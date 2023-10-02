@@ -3,8 +3,9 @@
 }
 
 .card_container {
-  width:16.5rem;
-  a{
+  width: 16.5rem;
+  padding: 2.5rem 1.25rem;
+  a {
     text-decoration: none;
   }
   .card {
@@ -20,10 +21,10 @@
     }
 
     .minicard {
-      padding:0.625rem 0 0 0.3rem;
+      padding: 0.625rem 0 0 0.3rem;
       font-weight: bold;
-      color:#02060cbf;
-      .productname{
+      color: #02060cbf;
+      .productname {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -36,7 +37,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         font-weight: 100;
-        color:#02060c99;
+        color: #02060c99;
       }
       .mincard_rating {
         display: flex;

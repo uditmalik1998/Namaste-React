@@ -1,19 +1,24 @@
-import React from "react";
+import React, { FC } from "react";
 import Slider from "react-slick";
 import styles from "./index.module.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import resObj from "../../../utils/mockdata";
 import Card from "../../atoms/Card";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
-const CardSlider = (props: any) => {
+interface ICardSlider {
+  heading?: string;
+  data?: any;
+}
+
+const CardSlider: FC<ICardSlider> = (props) => {
+  const { heading = "", data = [] } = props;
   const settings = {
     infinite: false,
     slidesToShow: 4,
     slidesToScroll: 4,
     prevArrow: (
-      <div className="custom-prev-arrow" >
+      <div className="custom-prev-arrow">
         <FaArrowLeftLong className={styles.svg_arrow} />
       </div>
     ),
@@ -26,11 +31,21 @@ const CardSlider = (props: any) => {
 
   return (
     <div className={styles.cardslider}>
-      <h2 className={styles.cardHeading}>Heading</h2>
+      <h2 className={styles.cardHeading}>{heading}</h2>
       <Slider {...settings}>
-        {resObj.map((item: any) => (
-          <Card resData={item} key={item.info.id} />
-        ))}
+        {data.map((item: any) => {
+          const info = item?.info;
+          return (
+            <Card
+              key={info.id}
+              restaurantName={info?.name}
+              rating={info?.avgRating}
+              restaurantId={info?.id}
+              cuisines={info?.cuisines}
+              imgId={info?.cloudinaryImageId}
+            />
+          );
+        })}
       </Slider>
     </div>
   );

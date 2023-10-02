@@ -1,7 +1,10 @@
 @import "../../../utils/partical/mixins";
 
 .mobcard {
-  display: flex;
+  a {
+    display: flex;
+    text-decoration: none;
+  }
   .card_details {
     display: flex;
     flex-direction: column;
@@ -18,6 +21,12 @@
         text-overflow: ellipsis;
         font-weight: 600;
       }
+      .veg_tag {
+        .veg_img {
+          @include toRem(width, 60);
+          @include toRem(height, 16);
+        }
+      }
     }
     .restaurantmeta {
       color: #696b79;
@@ -28,6 +37,12 @@
       .resprice {
         @include toRem(margin-left, 10);
       }
+    }
+    .cuisiones {
+      color: #93959f;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 }
