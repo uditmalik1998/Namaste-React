@@ -8,7 +8,6 @@ const ContactUs = () => {
     <div>
       <h1>Contact Us</h1>
       {/* <MobCard filteredData={resObj?.[0]}/> */}
-      <i className="fa-solid fa-star"></i>
     </div>
   );
 };

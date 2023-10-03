@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { IMG_CARD_URL } from "../../../utils/constants";
-import { AiFillStar } from "react-icons/ai";
+// import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import styles from "./index.module.scss";
 
@@ -34,7 +34,7 @@ const Card: FC<ICard> = (props) => {
           <div className={styles.minicard}>
             <p className={styles.productname}>{restaurantName}</p>
             <div className={styles.mincard_rating}>
-              <AiFillStar className={styles.rating_svg} />
+              {/* <AiFillStar className={styles.rating_svg} /> */}
               <p>{rating} star</p>
             </div>
             <p className={styles.cuisines}>{cuisines.join(", ")}</p>
