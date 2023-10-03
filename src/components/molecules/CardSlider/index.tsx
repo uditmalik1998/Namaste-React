@@ -4,7 +4,6 @@ import styles from "./index.module.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Card from "../../atoms/Card";
-// import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
 interface ICardSlider {
   heading?: string;
@@ -19,12 +18,12 @@ const CardSlider: FC<ICardSlider> = (props) => {
     slidesToScroll: 4,
     prevArrow: (
       <div className="custom-prev-arrow">
-        {/* <FaArrowLeftLong className={styles.svg_arrow} /> */}
+        <i className={`${styles.svg_arrow} fa-solid fa-arrow-left-long`}></i>
       </div>
     ),
     nextArrow: (
       <div className="custom-next-arrow">
-        {/* <FaArrowRightLong className={styles.svg_arrow} /> */}
+        <i className={`${styles.svg_arrow} fa-solid fa-arrow-right-long`}></i>
       </div>
     ),
   };

@@ -6,7 +6,7 @@
   margin: 3.125rem 0;
   .cardHeading {
     position: absolute;
-    top: -1.6875rem;
+    top: -2rem;
     left: 2.9375rem;
   }
   .svg_arrow {
@@ -29,7 +29,7 @@
     content: "";
   }
   :global(.slick-slider .slick-list) {
-    padding-top: 2rem;
+    padding-top: 1rem;
   }
   :global(.slick-slider .slick-next) {
     display: flex !important;

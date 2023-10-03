@@ -31,11 +31,45 @@
     .restaurantmeta {
       color: #696b79;
       display: flex;
+      .rating {
+        .svg_container {
+          @include toRem(padding-right, 5);
+          .rating_svg {
+            color: #b0b0b0;
+            @include toRem(width, 14);
+            @include toRem(height, 14);
+          }
+        }
+      }
       .restime {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         @include toRem(margin-left, 10);
+        .dot {
+          @include toRem(width, 4);
+          @include toRem(height, 4);
+          background-color: grey;
+          border-radius: 50%;
+        }
+        .time {
+          @include toRem(padding-left, 5);
+        }
       }
       .resprice {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         @include toRem(margin-left, 10);
+        .dot {
+          @include toRem(width, 4);
+          @include toRem(height, 4);
+          background-color: grey;
+          border-radius: 50%;
+        }
+        .price {
+          @include toRem(padding-left, 5);
+        }
       }
     }
     .cuisiones {

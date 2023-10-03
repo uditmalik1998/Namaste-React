@@ -51,14 +51,19 @@ const MobCard: FC<IMobCard> = (props: any) => {
             </div>
           </div>
           <div className={styles.restaurantmeta}>
-            <div>{rating}</div>
+            <div className={styles.rating}>
+              <span className={styles.svg_container}>
+                <i className={`fa-solid fa-star ${styles.rating_svg}`}></i>
+              </span>
+              {rating}
+            </div>
             <div className={styles.restime}>
-              <span>.</span>
-              <span>{responseTime}</span>
+              <div className={styles.dot}></div>
+              <span className={styles.time}>{responseTime}</span>
             </div>
             <div className={styles.resprice}>
-              <span>.</span>
-              <span>{price}</span>
+            <div className={styles.dot}></div>
+              <span className={styles.price}>{price}</span>
             </div>
           </div>
           <div className={styles.cuisiones}>
