@@ -25,7 +25,7 @@ const MobCard: FC<IMobCard> = (props: any) => {
     cuisiones = "",
     data = {},
   } = props;
-  console.log(props.data);
+
   return (
     <div className={styles.mobcard}>
       <Link to={link}>
@@ -62,7 +62,7 @@ const MobCard: FC<IMobCard> = (props: any) => {
               <span className={styles.time}>{responseTime}</span>
             </div>
             <div className={styles.resprice}>
-            <div className={styles.dot}></div>
+              <div className={styles.dot}></div>
               <span className={styles.price}>{price}</span>
             </div>
           </div>

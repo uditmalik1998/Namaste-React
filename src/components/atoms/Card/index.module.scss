@@ -44,7 +44,8 @@
         align-items: center;
         margin: calculateRem(4.8);
         .rating_svg {
-          width: calculateRem(16);
+          width: calculateRem(13);
+          height: calculateRem(13);
           background-color: green;
           color: white;
           padding: calculateRem(3);
@@ -52,5 +53,11 @@
         }
       }
     }
+  }
+  .shrink{
+    transition: transform 0.3s ease-in-out;
+  }
+  .shrink:hover{
+    transform: scale(0.95); 
   }
 }

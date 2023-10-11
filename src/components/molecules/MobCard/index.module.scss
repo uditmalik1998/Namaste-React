@@ -74,6 +74,8 @@
     }
     .cuisiones {
       color: #93959f;
+      width:268px;
+      // @include toRem(width, 268);
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;

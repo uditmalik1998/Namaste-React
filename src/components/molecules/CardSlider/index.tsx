@@ -42,6 +42,7 @@ const CardSlider: FC<ICardSlider> = (props) => {
               restaurantId={info?.id}
               cuisines={info?.cuisines}
               imgId={info?.cloudinaryImageId}
+              shrinkeffect={false}
             />
           );
         })}

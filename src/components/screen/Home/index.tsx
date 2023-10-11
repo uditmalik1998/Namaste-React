@@ -1,7 +1,6 @@
 import resObj from "../../../utils/mockdata";
 import React, { useState, useEffect } from "react";
 import Button from "../../atoms/Button";
-import useOnlineStatus from "../../../utils/hooks/useOnlineStatus";
 import styles from "./index.module.scss";
 import HomeCardLayout from "../../molecules/HomeCardLayout";
 import useDeviceType from "../../../utils/hooks/useDeviceType";
@@ -21,8 +20,8 @@ const Body = () => {
       const response = await data.json();
       if (
         deviceType === "desktop" &&
-        response?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
+        response?.data?.cards?.[5]?.card?.card?.gridElements &&
+        response?.data?.cards?.[2]?.card?.card?.gridElements
       ) {
         setCarousalData(
           response?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle
@@ -39,9 +38,12 @@ const Body = () => {
       }
       if (
         deviceType !== "desktop" &&
-        response?.data?.cards?.[3]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
+        response?.data?.cards?.[3]?.card?.card?.gridElements
       ) {
+        setCarousalData(
+          response?.data?.cards?.[0]?.card?.card?.gridElements?.infoWithStyle
+            ?.info
+        );
         setFilteredList(
           response?.data?.cards?.[3]?.card?.card?.gridElements?.infoWithStyle
             ?.restaurants
@@ -53,7 +55,6 @@ const Body = () => {
       }
     };
     fetachRestaurantList();
-    console.log(deviceType);
   }, [deviceType]);
 
   const highRated = () => {
@@ -98,7 +99,11 @@ const Body = () => {
               btntext={"Higher Rated"}
             ></Button>
           </div>
-          <HomeCardLayout filteredList={filteredList} deviceType={deviceType} carousalData={carousalData}/>
+          <HomeCardLayout
+            filteredList={filteredList}
+            deviceType={deviceType}
+            carousalData={carousalData}
+          />
         </div>
       )}
     </>

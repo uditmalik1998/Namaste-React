@@ -3,6 +3,7 @@ import Card from "../../atoms/Card";
 import styles from "./index.module.scss";
 import MobCard from "../MobCard";
 import CardSlider from "../CardSlider";
+import MobSlider from "../../atoms/MobSlider";
 
 interface IHomeCardLayout {
   filteredList?: any;
@@ -38,21 +39,24 @@ const HomeCardLayout: FC<IHomeCardLayout> = (props) => {
           </div>
         </>
       ) : (
-        filteredList.map((item: any) => {
-          const info = item?.info;
-          return (
-            <MobCard
-              key={info?.id}
-              link={`/restaurant/${info?.id}`}
-              restaurantName={info?.name}
-              rating={info?.avgRatingString}
-              responseTime={info?.sla?.slaString}
-              price={info?.costForTwo}
-              cuisiones={info?.cuisines}
-              data={info}
-            />
-          );
-        })
+        <>
+          <MobSlider data={carousalData}/>
+          {filteredList.map((item: any) => {
+            const info = item?.info;
+            return (
+              <MobCard
+                key={info?.id}
+                link={`/restaurant/${info?.id}`}
+                restaurantName={info?.name}
+                rating={info?.avgRatingString}
+                responseTime={info?.sla?.slaString}
+                price={info?.costForTwo}
+                cuisiones={info?.cuisines}
+                data={info}
+              />
+            );
+          })}
+        </>
       )}
     </div>
   );
