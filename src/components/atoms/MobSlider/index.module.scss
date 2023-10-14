@@ -1,14 +1,35 @@
+@import "../../../utils/partical/mixins";
+
 .mobslidercont {
-  display: flex;
-  scroll-behavior: smooth;
-  overflow-x: auto;
-  white-space: nowrap;
-  .sliderrapper {
-    margin: 1rem;
-    .sliderimg {
-      width: 290px;
-      height: 220px;
-      border-radius: 0.5rem;
+  @include toRem(padding, 24);
+  .mobheading{
+    @include toRem(padding-left, 18);
+    @include toRem(margin, 0);
+  }
+  .mobsliderimg {
+    display: flex;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    .sliderrapper {
+      margin: 1rem;
+      .sliderimg {
+        width: 290px;
+        height: 220px;
+        border-radius: 0.5rem;
+        cursor: pointer;
+      }
     }
+  }
+  .mobsliderimg::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width:480px){
+  .mobslidercont{
+    padding:0;
   }
 }

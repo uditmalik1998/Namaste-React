@@ -32,20 +32,20 @@ const CardSlider: FC<ICardSlider> = (props) => {
     <div className={styles.cardslider}>
       <h2 className={styles.cardHeading}>{heading}</h2>
       <Slider {...settings}>
-        {data.map((item: any) => {
-          const info = item?.info;
-          return (
-            <Card
-              key={info.id}
-              restaurantName={info?.name}
-              rating={info?.avgRating}
-              restaurantId={info?.id}
-              cuisines={info?.cuisines}
-              imgId={info?.cloudinaryImageId}
-              shrinkeffect={false}
-            />
-          );
-        })}
+        {data?.length > 0 &&
+          data.map((item: any) => {
+            return (
+              <Card
+                key={item?.id}
+                restaurantName={item?.name}
+                rating={item?.avgRating}
+                restaurantId={item?.id}
+                cuisines={item?.cuisines}
+                imgId={item?.cloudinaryImageId}
+                shrinkeffect={false}
+              />
+            );
+          })}
       </Slider>
     </div>
   );

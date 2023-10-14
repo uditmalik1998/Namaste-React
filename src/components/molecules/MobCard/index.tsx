@@ -7,11 +7,13 @@ interface IMobCard {
   link?: string;
   restaurantName?: string;
   vegImg?: string;
-  rating?: string;
+  rating?: number;
   responseTime?: string;
   price?: string;
   cuisiones?: string[];
-  data?: any;
+  discountCouponCode?: string;
+  discountTextHeader?: string;
+  imageId?: string;
 }
 
 const MobCard: FC<IMobCard> = (props: any) => {
@@ -19,11 +21,13 @@ const MobCard: FC<IMobCard> = (props: any) => {
     link = "#",
     restaurantName = "",
     vegImg = "",
-    rating = "",
+    rating = 0,
     responseTime = "",
     price = "",
     cuisiones = "",
-    data = {},
+    discountTextHeader = "",
+    discountCouponCode = "",
+    imageId = "",
   } = props;
 
   return (
@@ -31,11 +35,9 @@ const MobCard: FC<IMobCard> = (props: any) => {
       <Link to={link}>
         <MobImage
           id={0}
-          imageId={data?.cloudinaryImageId}
-          discountPercentage={data?.aggregatedDiscountInfoV2?.header}
-          discountPrice={
-            data?.aggregatedDiscountInfoV2?.shortDescriptionList?.[0]?.meta
-          }
+          imageId={imageId}
+          discountPercentage={discountTextHeader}
+          discountPrice={discountCouponCode}
         />
         <div className={styles.card_details}>
           <div className={styles.rest_tag}>
