@@ -1,0 +1,12 @@
+@import "../../../utils//partical/mixins";
+.imageslider {
+  overflow: hidden;
+  .imageslider_wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
+    @include toRem(margin-bottom, -20);
+    @include toRem(padding-bottom, 20);
+  }
+}

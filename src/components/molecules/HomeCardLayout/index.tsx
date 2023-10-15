@@ -4,6 +4,8 @@ import styles from "./index.module.scss";
 import MobCard from "../MobCard";
 import CardSlider from "../CardSlider";
 import MobSlider from "../../atoms/MobSlider";
+import ImageSlider from "../../atoms/ImageSlider";
+import MobImage from "../../atoms/MobImage";
 
 interface IHomeCardLayout {
   deviceType?: string;
@@ -53,6 +55,23 @@ const HomeCardLayout: FC<IHomeCardLayout> = (props) => {
         </>
       ) : (
         <>
+          <h2>Top Picks For You</h2>
+          <ImageSlider>
+            {layoutData?.[1]?.allRestaurant?.length > 0 &&
+              layoutData?.[1]?.allRestaurant.map((item: any) => {
+                return (
+                  <div className={styles.top_picks}>
+                    <MobImage
+                      key={item?.id}
+                      className={styles.imageSlider_bar}
+                      imageId={item?.cloudinaryImageId}
+                    />
+                    <div className={styles.top_picksinfo}>{item?.name}</div>
+                    <div className={styles.top_picktime}>{item?.deliveryTime}</div>
+                  </div>
+                );
+              })}
+          </ImageSlider>
           <MobSlider data={layoutData?.[0]?.banner} />
           {layoutData?.[1]?.allRestaurant?.length > 0 &&
             layoutData?.[1]?.allRestaurant.map((item: any) => {

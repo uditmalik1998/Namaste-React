@@ -8,6 +8,7 @@ interface IMobImage {
   imageId?: string;
   discountPercentage?: string;
   discountPrice?: string;
+  className?: string;
 }
 
 const MobImage: FC<IMobImage> = (props: any) => {
@@ -16,20 +17,35 @@ const MobImage: FC<IMobImage> = (props: any) => {
     imageId = "",
     discountPercentage = "",
     discountPrice = "",
+    className = "",
   } = props;
   return (
-    <div className={styles.mobimg_cont}>
-      <Link to={id === 0 ? "#" : `/restaurant/${id}`}>
-        <div className={styles.mobimg}>
-          <img className={styles.img} src={`${IMG_CARD_URL}/${imageId}`} />
-        </div>
-        {discountPercentage && discountPrice ? (
-          <div className={styles.restaurantdiscount}>
-            <div>{discountPercentage}</div>
-            <div className={styles.restprice}>{discountPrice}</div>
+    <div className={`${styles.mobimg_cont} ${className}`}>
+      {id === 0 ? (
+        <>
+          <div className={styles.mobimg}>
+            <img className={styles.img} src={`${IMG_CARD_URL}/${imageId}`} />
           </div>
-        ) : null}
-      </Link>
+          {discountPercentage && discountPrice ? (
+            <div className={styles.restaurantdiscount}>
+              <div>{discountPercentage}</div>
+              <div className={styles.restprice}>{discountPrice}</div>
+            </div>
+          ) : null}
+        </>
+      ) : (
+        <Link to={`/restaurant/${id}`}>
+          <div className={styles.mobimg}>
+            <img className={styles.img} src={`${IMG_CARD_URL}/${imageId}`} />
+          </div>
+          {discountPercentage && discountPrice ? (
+            <div className={styles.restaurantdiscount}>
+              <div>{discountPercentage}</div>
+              <div className={styles.restprice}>{discountPrice}</div>
+            </div>
+          ) : null}
+        </Link>
+      )}
     </div>
   );
 };
