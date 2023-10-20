@@ -1,0 +1,6 @@
+@import "../../../utils/partical/mixins";
+
+.restaurant_itemcontainer {
+  @include toRem(max-width, 800);
+  margin: 5px auto 0;
+}

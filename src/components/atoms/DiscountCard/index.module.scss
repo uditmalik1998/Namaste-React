@@ -1,0 +1,35 @@
+@import "../../../utils/partical/mixins";
+
+.discountcard_container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e9e9eb;
+  @include toRem(border-radius, 8);
+  @include toRem(min-width, 225);
+  @include toRem(padding, 8);
+  margin: 1rem 1rem 1rem 0;
+  justify-content: center;
+  .header_wrapper {
+    display: flex;
+    align-items: center;
+    .discount_logo {
+      @include toRem(width, 20);
+      @include toRem(height, 20);
+      @include toRem(margin-right, 8);
+    }
+    .discount_text {
+      margin: 0;
+      color: #686b78;
+    }
+  }
+  .discount_discription {
+    color: #93959f;
+    @include toRem(font-size, 13);
+    @include toRem(margin-top, 4);
+    .discount_code {
+      border-left: 1px solid #93959f;
+      @include toRem(margin-left, 8);
+      @include toRem(padding-left, 8);
+    }
+  }
+}

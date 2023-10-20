@@ -1,0 +1,84 @@
+@import "../../../utils/partical/mixins";
+
+.restaurant_detailscontainer {
+  .restaurantdetails_wrapper {
+    border-bottom: 1px dashed #d3d3d3;
+    @include toRem(margin-bottom, 18);
+    .restaurant_address {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include toRem(margin-bottom, 18);
+      @include toRem(padding-top, 16);
+      .restaurant_addresswrapper {
+        .restaurant_name {
+          margin: 0;
+          @include toRem(font-size, 22);
+          font-weight: 600;
+          color: #282c3f;
+          @include toRem(margin-bottom, 8);
+        }
+        .restaurant_dish {
+          margin: 0;
+          color: #7e808c;
+          @include toRem(font-size, 14);
+          @include toRem(padding-bottom, 4);
+        }
+        .restaurant_place {
+          margin: 0;
+          color: #7e808c;
+          @include toRem(font-size, 14);
+        }
+      }
+      .restaurant_popularity {
+        border: 1px solid #e9e9eb;
+        @include toRem(padding, 12);
+        @include toRem(border-radius, 6);
+        text-align: center;
+        @include toRem(font-size, 14);
+        .res_rating {
+          color: #3d9b6d;
+          font-weight: 700;
+          border-bottom: 1px solid #e9e9eb;
+          @include toRem(padding-bottom, 10);
+          .rate_num {
+            @include toRem(margin-left, 2);
+          }
+        }
+        .rating_quantity {
+          margin: 0;
+          @include toRem(padding-top, 10);
+          @include toRem(font-size, 11);
+          font-weight: 600;
+          color: #8b8d97;
+        }
+      }
+    }
+    .restaurant_distance {
+      display: flex;
+      @include toRem(margin-bottom, 18);
+      @include toRem(font-size, 14);
+      .kms {
+        @include toRem(padding-right, 5);
+        color: #7e808c;
+      }
+    }
+  }
+  .timing_details {
+    display: flex;
+    .time {
+      .circle_svg {
+        @include toRem(margin-right, 10);
+      }
+      .time {
+        @include toRem(margin-right, 24);
+      }
+    }
+    .cost_two {
+      .rupee_svg {
+        @include toRem(margin-right, 10);
+        @include toRem(padding, 5);
+      }
+    }
+  }
+}
