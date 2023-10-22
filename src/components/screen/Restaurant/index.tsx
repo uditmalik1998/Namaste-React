@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { ENDPOINTS } from "../../../utils/constants";
 import { useParams } from "react-router-dom";
 import RestaurantLogicApiManager from "../../../../api-manager/layout/restaurant-logic";
 import RestaurantCardDetails from "../../atoms/RestaurantCardDetails";
 import DiscountCardSlider from "../../molecules/DiscountCardSlider";
 import styles from "./index.module.scss";
+import RestaurantCategory from "../../molecules/RestaurantCatagory";
 
 const RestaurantItem = () => {
   const [apiData, setApiData] = useState<any>([]);
@@ -36,10 +36,14 @@ const RestaurantItem = () => {
           restaurantDistance={apiData.restaurantcard?.distanceFromYou}
           deliveryTime={apiData.restaurantcard?.timeTaken}
           costForTwo={apiData.restaurantcard?.costForTwo}
+          fee={apiData.restaurantcard?.fee?.totalFee}
         />
       ) : null}
       {apiData?.restaurantOffers ? (
-        <DiscountCardSlider res = {apiData.restaurantOffers} />
+        <DiscountCardSlider res={apiData.restaurantOffers} />
+      ) : null}
+      {apiData?.restaurantData ? (
+        <RestaurantCategory response={apiData.restaurantData} />
       ) : null}
     </div>
   );

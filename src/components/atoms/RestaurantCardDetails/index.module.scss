@@ -82,3 +82,20 @@
     }
   }
 }
+
+@media (max-width: 480px) {
+  .restaurant_detailscontainer {
+    .timing_details {
+      .time {
+        .circle_svg {
+          @include toRem(margin-right, 4);
+        }
+      }
+      .cost_two {
+        .rupee_svg {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

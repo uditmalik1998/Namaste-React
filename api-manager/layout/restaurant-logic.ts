@@ -27,7 +27,8 @@ class RestaurantLogicApiManager {
     }
 
     if (
-      data.data.cards[1].card.card.gridElements.infoWithStyle.offers.length > 0
+      data?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.offers
+        ?.length > 0
     ) {
       const offers =
         data.data.cards[1].card.card.gridElements.infoWithStyle.offers;
@@ -44,9 +45,14 @@ class RestaurantLogicApiManager {
       responseLayout.restaurantOffers = layoutOffersJson;
     }
 
-    if (data.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards.length > 0) {
+    const cardsLength = data?.data?.cards?.length - 1;
+    if (
+      data?.data?.cards?.[cardsLength]?.groupedCard?.cardGroupMap?.REGULAR
+        ?.cards?.length > 0
+    ) {
       const restaurantJson: any = [];
-      const cards = data.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards;
+      const cards =
+        data.data.cards[cardsLength].groupedCard.cardGroupMap.REGULAR.cards;
       const filterCards = cards.filter(
         (item: any) =>
           typeof item?.card?.card?.title === "string" &&

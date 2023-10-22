@@ -10,6 +10,7 @@ interface IRestaurantCardDetails {
   restaurantDistance?: string;
   deliveryTime?: string;
   costForTwo?: string;
+  fee?: number;
 }
 
 const RestaurantCardDetails: FC<IRestaurantCardDetails> = (props) => {
@@ -22,6 +23,7 @@ const RestaurantCardDetails: FC<IRestaurantCardDetails> = (props) => {
     restaurantDistance = "",
     deliveryTime = "",
     costForTwo = "",
+    fee = 0,
   } = props;
   return (
     <div className={styles.restaurant_detailscontainer}>
@@ -45,28 +47,35 @@ const RestaurantCardDetails: FC<IRestaurantCardDetails> = (props) => {
             <div className={styles.rating_quantity}>{ratingQuantity}</div>
           </div>
         </div>
-        <div className={styles.restaurant_distance}>
-          <div className={styles.kms}>
-            <span>
-              <i
-                className="fa-solid fa-bicycle fa-xs"
-                style={{ color: "#6b6b6b" }}
-              ></i>
-            </span>{" "}
-            <span>{restaurantDistance}</span>
+        {fee > 0 ? (
+          <div className={styles.restaurant_distance}>
+            <div className={styles.kms}>
+              <span>
+                <i
+                  className="fa-solid fa-bicycle fa-xs"
+                  style={{ color: "#6b6b6b" }}
+                ></i>
+              </span>{" "}
+              <span>
+                {restaurantDistance}
+                {` | ${fee / 100} Delivery fee will apply`}
+              </span>
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
       <div className={styles.timing_details}>
-        <div className={styles.time}>
-          <span className={styles.circle_svg}>
-            <i
-              className="fa-solid fa-circle-half-stroke"
-              style={{ color: "#3e4152" }}
-            ></i>
-          </span>
-          <span className={styles.time}>{deliveryTime}</span>
-        </div>
+        {deliveryTime ? (
+          <div className={styles.time}>
+            <span className={styles.circle_svg}>
+              <i
+                className="fa-solid fa-circle-half-stroke"
+                style={{ color: "#3e4152" }}
+              ></i>
+            </span>
+            <span className={styles.time}>{deliveryTime}</span>
+          </div>
+        ) : null}
         <div className={styles.cost_two}>
           <span className={styles.rupee_svg}>
             {" "}
@@ -75,7 +84,7 @@ const RestaurantCardDetails: FC<IRestaurantCardDetails> = (props) => {
               style={{ color: "#3e4152" }}
             ></i>
           </span>
-          <span>{costForTwo}</span>
+          <span>{costForTwo?.replace("₹", "")}</span>
         </div>
       </div>
     </div>

@@ -13,9 +13,9 @@ const DiscountCardSlider: FC<IDiscountCardSlider> = (props) => {
     <div className={styles.discountcard_slider}>
       <ImageSlider>
         {res?.length > 0
-          ? res.map((item: any) => (
+          ? res.map((item: any, index: number) => (
               <DiscountCard
-                key={item?.restId}
+                key={`${item?.restId}_${index}`}
                 imagePath={item?.offerLogo}
                 header={item?.header}
                 couponCode={item?.couponCode}

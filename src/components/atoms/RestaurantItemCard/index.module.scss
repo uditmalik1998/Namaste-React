@@ -1,0 +1,98 @@
+@import "../../../utils/partical/mixins";
+
+.rescard_container {
+  display: flex;
+  justify-content: space-between;
+  @include toRem(padding-bottom, 32);
+  @include toRem(padding-top, 16);
+  border-bottom: 1px solid #dbdce5;
+  .card_details {
+    .dish_typewrapper {
+      margin: 0;
+      .dish_type {
+        @include toRem(width, 20);
+        @include toRem(height, 20);
+      }
+    }
+    .dish_name {
+      margin: 0;
+      @include toRem(padding-top, 4);
+      @include toRem(font-size, 18px);
+    }
+    .price {
+      display: flex;
+      @include toRem(margin-top, 4);
+      .rupee {
+        color: #3e4152;
+        font-weight: 400;
+        @include toRem(margin-right, 8);
+      }
+      .discount {
+        display: flex;
+        align-items: center;
+        background-color: #fae8e3;
+        color: #db6742;
+        @include toRem(font-size, 11);
+        border-left: 1px solid #db6742;
+        @include toRem(padding-left, 5);
+        @include toRem(padding-right, 10);
+        .discount_percentage {
+          @include toRem(padding-right, 4);
+          font-weight: 600;
+        }
+      }
+    }
+    .discription {
+      color: #282c3f;
+      opacity: 0.4;
+      margin: 0;
+      @include toRem(font-size, 14);
+      @include toRem(margin-top, 14);
+    }
+    .discription_more {
+      display: none;
+    }
+  }
+  .image_wrapper {
+    @include toRem(margin-left, 16);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .item_img {
+      @include toRem(width, 118);
+      @include toRem(height, 96);
+      @include toRem(border-radius, 8);
+    }
+    .item_btn {
+      position: absolute;
+      @include toRem(top, 60);
+      background-color: white;
+      color: #60b246;
+      font-weight: 600;
+      @include toRem(width, 86);
+      border: 1px solid #d4d5d9;
+      @include toRem(border-radius, 4);
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .rescard_container {
+    .card_details {
+      .discription_more {
+        display: block;
+        color: #686b78;
+      }
+      .moreview {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        @include toRem(max-width, 250);
+        overflow: hidden;
+      }
+      .morehide {
+        display: none;
+      }
+    }
+  }
+}

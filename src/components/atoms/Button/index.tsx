@@ -1,12 +1,21 @@
 import React, { FC } from "react";
 import styles from "./index.module.scss";
 
-const Button: FC<any> = (props) => {
-  const { btntext = "", onClick = () => {} } = props;
-  
+interface IButton {
+  btnText?: string;
+  onClick?: () => void;
+  className?: string;
+}
+
+const Button: FC<IButton> = (props) => {
+  const { btnText = "", onClick = () => {}, className = "" } = props;
+
   return (
-    <button onClick={() => onClick()} className={styles.cusbtn}>
-      {btntext}
+    <button
+      onClick={() => onClick()}
+      className={`${styles.cusbtn} ${className}`}
+    >
+      {btnText}
     </button>
   );
 };

@@ -8,7 +8,7 @@ import "./app.scss";
 
 const About = lazy(() => import("./src/components/screen/About"));
 const RestaurantItem = lazy(() =>
-  import("./src/components/screen/RestaurantItem")
+  import("./src/components/screen/Restaurant")
 );
 const Contact_us = lazy(() => import("./src/components/screen/ContactUs"));
 
