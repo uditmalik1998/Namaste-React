@@ -1,6 +1,8 @@
 import React, { FC, useState } from "react";
 import RestaurantItemCard from "../../atoms/RestaurantItemCard";
 import styles from "./index.module.scss";
+import ArrowUp from "../../Icons/arrow-up";
+import ArrowDown from "../../Icons/arrow-down";
 
 interface IRestaurantCategory {
   response?: { itemCards?: any; title?: string }[];
@@ -35,10 +37,7 @@ const RestaurantCategory: FC<IRestaurantCategory> = (props) => {
                 <h3 className={styles.heading}>{`${item?.title}(${
                   item?.itemCards?.length > 0 ? item.itemCards.length : null
                 })`}</h3>
-                <i
-                  className={`${"fa-solid fa-angle-up"}`}
-                  style={{ color: "#606c80" }}
-                ></i>
+                {!open?.includes(item?.title) ? <ArrowUp /> : <ArrowDown />}
               </div>
               {item?.itemCards?.length > 0 &&
                 item.itemCards.map((res: any) => {
