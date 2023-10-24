@@ -1,7 +1,9 @@
-
 #dependencies
 /node_modules
 /.pnp
 /dist
 /.parcel-cache
-
+.scannerwork
+sonarqube/extensions
+sonarqube/data
+sonarqube/logs
