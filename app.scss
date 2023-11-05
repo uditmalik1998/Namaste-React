@@ -28,8 +28,54 @@
 
   .body-container {
     padding: 0.125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     .search {
       padding: calculateRem(5);
+    }
+  }
+  .shimmer_container {
+    // position: relative;
+    // height: 100%;
+    // -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    // box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    // background-color: #fff;
+    // overflow: hidden;
+
+    .shimmer {
+      animation-duration: 2.2s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-name: shimmer;
+      animation-timing-function: linear;
+      background: #ddd;
+      background: linear-gradient(
+        to right,
+        #f6f6f6 8%,
+        #f0f0f0 18%,
+        #f6f6f6 33%
+      );
+      // background-size: 1200px 100%;
+    }
+
+    @-webkit-keyframes shimmer {
+      0% {
+        background-position: -100% 0;
+      }
+      100% {
+        background-position: 100% 0;
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -1200px 0;
+      }
+      100% {
+        background-position: 1200px 0;
+      }
     }
   }
 }

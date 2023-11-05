@@ -5,6 +5,7 @@ import styles from "./index.module.scss";
 import HomeCardLayout from "../../molecules/HomeCardLayout";
 import useDeviceType from "../../../utils/hooks/useDeviceType";
 import { homePageLayoutData } from "../../../../api-manager/layout/homepagelayout";
+import HomeShimmer from "../../atoms/HomeShimmer";
 
 const Body = () => {
   // const [restaurantList, setRestaurantList] = useState([]);
@@ -31,7 +32,7 @@ const Body = () => {
   return (
     <>
       {layoutData.length < 1 ? (
-        <h1>Loading....</h1>
+       <HomeShimmer/>
       ) : (
         <div className="body-container">
           {/* <div className={styles.search_container}>

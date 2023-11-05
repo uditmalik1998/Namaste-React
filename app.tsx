@@ -10,7 +10,7 @@ const About = lazy(() => import("./src/components/screen/About"));
 const RestaurantItem = lazy(() =>
   import("./src/components/screen/Restaurant")
 );
-const Contact_us = lazy(() => import("./src/components/screen/ContactUs"));
+const ContactUs = lazy(() => import("./src/components/screen/ContactUs"));
 
 const AppLayout = () => {
   return (
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         path: "/contact-us",
         element: (
           <Suspense fallback={<h1>Loading...</h1>}>
-            <Contact_us />
+            <ContactUs />
           </Suspense>
         ),
       },

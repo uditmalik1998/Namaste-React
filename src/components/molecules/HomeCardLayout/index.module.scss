@@ -5,6 +5,7 @@
 }
 
 .homecardlayout {
+  max-width: calculateRem(1066);
   .slider img {
     width: calculateRem(425) !important;
     height: calculateRem(252) !important;
