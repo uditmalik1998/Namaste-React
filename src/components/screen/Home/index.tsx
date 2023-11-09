@@ -34,7 +34,7 @@ const Body = () => {
       {layoutData.length < 1 ? (
        <HomeShimmer/>
       ) : (
-        <div className="body-container">
+        <div className={styles.body_container}>
           {/* <div className={styles.search_container}>
             <div className={styles.inputtxt}>
               <input

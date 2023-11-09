@@ -26,16 +26,6 @@
     }
   }
 
-  .body-container {
-    padding: 0.125rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    .search {
-      padding: calculateRem(5);
-    }
-  }
   .shimmer_container {
     // position: relative;
     // height: 100%;

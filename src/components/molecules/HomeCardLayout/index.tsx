@@ -19,39 +19,47 @@ const HomeCardLayout: FC<IHomeCardLayout> = (props) => {
     <div className={styles.homecardlayout}>
       {deviceType === "desktop" ? (
         <>
-          <MobSlider
-            data={layoutData?.[0]?.banner}
-            className={styles.slider}
-            heading={"Best offers for you"}
-          />
-          <MobSlider
-            data={layoutData?.[1]?.bannerCuisiones}
-            className={styles.slidercuisiones}
-            heading={"What's on your mind?"}
-          />
-          <CardSlider
-            heading={"Top restaurant chains in Delhi"}
-            data={layoutData?.[2]?.bestDesktopRestaurant}
-          />
-          <div className={styles.cardlayout_wrapper}>
-            <h2 className={styles.cardlayout_heading}>
-              Restaurants with online food delivery in Delhi
-            </h2>
-            <div className={styles.cardlayout_container}>
-              {layoutData?.[3]?.allRestaurant.map((item: any) => {
-                return (
-                  <Card
-                    key={item.id}
-                    restaurantName={item?.name}
-                    rating={item?.avgRating}
-                    restaurantId={item?.id}
-                    cuisines={item?.cuisines}
-                    imgId={item?.cloudinaryImageId}
-                  />
-                );
-              })}
+          {layoutData?.[0]?.banner?.length > 0 ? (
+            <MobSlider
+              data={layoutData[0].banner}
+              className={styles.slider}
+              heading={"Best offers for you"}
+            />
+          ) : null}
+          {layoutData?.[1]?.bannerCuisiones?.length > 0 ? (
+            <MobSlider
+              data={layoutData[1].bannerCuisiones}
+              className={styles.slidercuisiones}
+              heading={"What's on your mind?"}
+            />
+          ) : null}
+          {layoutData?.[2]?.bestDesktopRestaurant?.length > 0 ? (
+            <CardSlider
+              heading={"Top restaurant chains in Delhi"}
+              data={layoutData[2].bestDesktopRestaurant}
+            />
+          ) : null}
+          {layoutData?.[3]?.allRestaurant?.length > 0 ? (
+            <div className={styles.cardlayout_wrapper}>
+              <h2 className={styles.cardlayout_heading}>
+                Restaurants with online food delivery in Delhi
+              </h2>
+              <div className={styles.cardlayout_container}>
+                {layoutData[3].allRestaurant.map((item: any) => {
+                  return (
+                    <Card
+                      key={item.id}
+                      restaurantName={item?.name}
+                      rating={item?.avgRating}
+                      restaurantId={item?.id}
+                      cuisines={item?.cuisines}
+                      imgId={item?.cloudinaryImageId}
+                    />
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          ) : null}
         </>
       ) : (
         <>
@@ -60,19 +68,22 @@ const HomeCardLayout: FC<IHomeCardLayout> = (props) => {
             {layoutData?.[1]?.allRestaurant?.length > 0 &&
               layoutData?.[1]?.allRestaurant.map((item: any) => {
                 return (
-                  <div className={styles.top_picks}>
+                  <div className={styles.top_picks} key={item?.id}>
                     <MobImage
-                      key={item?.id}
                       className={styles.imageSlider_bar}
                       imageId={item?.cloudinaryImageId}
                     />
                     <div className={styles.top_picksinfo}>{item?.name}</div>
-                    <div className={styles.top_picktime}>{item?.deliveryTime}</div>
+                    <div className={styles.top_picktime}>
+                      {item?.deliveryTime}
+                    </div>
                   </div>
                 );
               })}
           </ImageSlider>
-          <MobSlider data={layoutData?.[0]?.banner} />
+          {layoutData?.[0]?.banner?.length ? (
+            <MobSlider data={layoutData[0].banner} />
+          ) : null}
           {layoutData?.[1]?.allRestaurant?.length > 0 &&
             layoutData?.[1]?.allRestaurant.map((item: any) => {
               return (

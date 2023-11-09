@@ -14,8 +14,8 @@ const CardSlider: FC<ICardSlider> = (props) => {
   const { heading = "", data = [] } = props;
   const settings = {
     infinite: false,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     prevArrow: (
       <div className="custom-prev-arrow">
         <i className={`${styles.svg_arrow} fa-solid fa-arrow-left-long`}></i>
