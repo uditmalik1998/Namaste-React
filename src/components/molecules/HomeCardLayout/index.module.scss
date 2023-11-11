@@ -6,6 +6,7 @@
 
 .homecardlayout {
   max-width: calculateRem(1066);
+  @include toRem(padding-top, 75);
   .slider img {
     width: calculateRem(425) !important;
     height: calculateRem(252) !important;
@@ -55,5 +56,12 @@
     .imageSlider_bar {
       margin: calculateRem(10);
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .homecardlayout {
+    @include toRem(padding, 8);
+    @include toRem(padding-top, 100);
   }
 }

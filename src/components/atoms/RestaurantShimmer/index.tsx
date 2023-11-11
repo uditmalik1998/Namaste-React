@@ -10,7 +10,7 @@ const RestaurantShimmer = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        margin:"16px"
+        paddingTop: "100px",
       }}
     >
       <div style={{ minWidth: "800px" }}>

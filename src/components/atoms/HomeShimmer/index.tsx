@@ -7,7 +7,7 @@ const HomeShimmer = () => {
   return (
     <div
       className="shimmer_container"
-      style={{ display: "flex", justifyContent: "center", marginTop: "24px" }}
+      style={{ display: "flex", justifyContent: "center", paddingTop: "105px" }}
     >
       <div style={{ minWidth: "1066px" }}>
         <div className="shimmer" style={{ height: "27.5px" }}></div>

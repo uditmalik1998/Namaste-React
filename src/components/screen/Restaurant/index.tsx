@@ -19,7 +19,6 @@ const RestaurantItem = () => {
             resId
           );
         setApiData(res);
-        console.log(res, "RES");
       }
     };
     fetchResData();

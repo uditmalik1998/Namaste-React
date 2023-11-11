@@ -1,31 +1,7 @@
-@function calculateRem($num) {
-  @return $num * 0.0625rem;
+*{
+  margin:0px;
 }
-
 .app {
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid black;
-    padding: 5px 10px;
-    .logo-container {
-      .logo {
-        width: 80px;
-      }
-    }
-    .nav {
-      .nav-items {
-        display: flex;
-        list-style-type: none;
-        font-size: 17px;
-        li {
-          padding: 0px 10px;
-        }
-      }
-    }
-  }
-
   .shimmer_container {
     // position: relative;
     // height: 100%;
@@ -47,7 +23,6 @@
         #f0f0f0 18%,
         #f6f6f6 33%
       );
-      // background-size: 1200px 100%;
     }
 
     @-webkit-keyframes shimmer {

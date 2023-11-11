@@ -14,7 +14,7 @@ interface IHomeCardLayout {
 
 const HomeCardLayout: FC<IHomeCardLayout> = (props) => {
   const { deviceType, layoutData = [] } = props;
-  console.log(props, "((((");
+
   return (
     <div className={styles.homecardlayout}>
       {deviceType === "desktop" ? (

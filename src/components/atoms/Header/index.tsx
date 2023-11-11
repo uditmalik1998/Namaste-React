@@ -5,12 +5,12 @@ import styles from "./index.module.scss";
 
 const Header = () => {
   return (
-    <div className="header">
-      <div className="logo-container">
-        <img className="logo" src={LOGO_URL} />
+    <div className={styles.header}>
+      <div className={styles.logo_container}>
+        <img className={styles.logo} src={LOGO_URL} />
       </div>
-      <div className="nav">
-        <ul className="nav-items">
+      <div className={styles.nav}>
+        <ul className={styles.nav_items}>
           <li className={styles.nav_items_link}>
             <Link to="/">Home</Link>
           </li>
@@ -20,7 +20,14 @@ const Header = () => {
           <li className={styles.nav_items_link}>
             <Link to="/contact-us">Contact Us</Link>
           </li>
-          <li>Cart</li>
+          <li className={styles.nav_items_link}>
+            <Link to="/">
+              <span className={styles.cart_icon}>
+                <i className="fa-solid fa-cart-shopping"></i>
+              </span>
+              <span>Cart</span>
+            </Link>
+          </li>
         </ul>
       </div>
     </div>

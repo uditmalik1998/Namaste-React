@@ -1,6 +1,39 @@
-.nav_items_link{
-    a{
-        text-decoration: none;
-        color:black;
+@import "../../../utils/partical/mixins";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
+  padding: 5px 10px;
+  background-color: white;
+  z-index: 100;
+  .logo_container {
+    .logo {
+      width: 80px;
     }
+  }
+  .nav {
+    @include toRem(padding-right, 24);
+    .nav_items {
+      display: flex;
+      list-style-type: none;
+      @include toRem(font-size, 17);
+      .nav_items_link {
+        padding: 0px 20px;
+        a {
+          text-decoration: none;
+          color: black;
+          &:hover {
+            color: #fc8019;
+          }
+          .cart_icon {
+            @include toRem(padding-right, 6);
+          }
+        }
+      }
+    }
+  }
 }
