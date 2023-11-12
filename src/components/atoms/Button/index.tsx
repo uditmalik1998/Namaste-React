@@ -1,15 +1,22 @@
 import React, { FC, useState, useEffect } from "react";
 import styles from "./index.module.scss";
+import Loader from "../Loader";
 
 interface IButton {
   btnText?: string;
   onClick?: () => void;
   className?: string;
+  loading?: boolean;
 }
 
 const Button: FC<IButton> = (props) => {
   const [onClicked, setOnClicked] = useState<boolean>(false);
-  const { btnText = "", onClick = () => {}, className = "" } = props;
+  const {
+    btnText = "",
+    onClick = () => {},
+    className = "",
+    loading = false,
+  } = props;
   let timeoutId: any = 0;
 
   const showRipple = () => {
@@ -39,7 +46,7 @@ const Button: FC<IButton> = (props) => {
       onMouseDown={showRipple}
       onMouseUp={callCleanUp(cleanTimeOut, 200)}
     >
-      {btnText}
+      {loading ? <Loader /> : btnText}
       <span className={`${onClicked ? styles.ripple : ""}`}></span>
     </button>
   );

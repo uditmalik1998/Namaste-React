@@ -16,7 +16,7 @@ const ContactUs = lazy(() => import("./src/components/screen/ContactUs/index"));
 const AppLayout = () => {
   return (
     <div className="app">
-      <Header />
+      {/* <Header /> */}
       <Outlet />
     </div>
   );
