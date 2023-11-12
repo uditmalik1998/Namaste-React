@@ -21,7 +21,7 @@ const Header = () => {
             <Link to="/contact-us">Contact Us</Link>
           </li>
           <li className={styles.nav_items_link}>
-            <Link to="/">
+            <Link to="/cart">
               <span className={styles.cart_icon}>
                 <i className="fa-solid fa-cart-shopping"></i>
               </span>

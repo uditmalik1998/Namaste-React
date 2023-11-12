@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import RestaurantLogicApiManager from "../../../../api-manager/layout/restaurant-logic";
 import RestaurantCardDetails from "../../atoms/RestaurantCardDetails";
 import DiscountCardSlider from "../../molecules/DiscountCardSlider";
-import styles from "./index.module.scss";
 import RestaurantCategory from "../../molecules/RestaurantCatagory";
 import RestaurantShimmer from "../../atoms/RestaurantShimmer";
+import styles from "./index.module.scss";
 
 const RestaurantItem = () => {
   const [apiData, setApiData] = useState<any>([]);

@@ -1,0 +1,26 @@
+@import "../../../utils/partical/mixins";
+
+.empty_cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include toRem(height, 500);
+  .cart_img {
+    @include toRem(width, 323);
+  }
+  .heading {
+    @include toRem(padding-top, 24);
+  }
+  .subheading {
+    padding: 0.5rem 0;
+  }
+  .redirect_btn {
+    color: black;
+    border: 1px solid black;
+    background-color: white;
+    &:hover {
+      background-color: white;
+    }
+  }
+}

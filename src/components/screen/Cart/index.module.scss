@@ -1,0 +1,5 @@
+@import "../../../utils/partical/mixins";
+
+.cart_wrapper{
+  @include toRem(padding-top, 90);
+}
