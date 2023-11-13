@@ -12,15 +12,15 @@ const About = () => {
   return (
     <>
       <h1>About Us</h1>
-      {/* <Modal
+      <Modal
         show={show}
         handleClose={handleClose}
-        header={"Udit"}
+        header={" "}
         footer={"Footer"}
         headerProps={{ closeButton: true }}
       >
         KKK
-      </Modal> */}
+      </Modal>
       {/* <Offcanvas
         show={show}
         handleClose={handleClose}

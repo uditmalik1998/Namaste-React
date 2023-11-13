@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { Modal as BSModal } from "react-bootstrap";
+import styles from "./index.module.scss";
 
 interface IModal {
   show?: boolean;
@@ -26,7 +27,11 @@ const Modal: FC<IModal> = (props) => {
 
   return (
     <div>
-      <BSModal show={show} onHide={handleClose} className={className}>
+      <BSModal
+        show={show}
+        onHide={handleClose}
+        className={`${styles.modal_wrapper} ${className}`}
+      >
         {header ? (
           <BSModal.Header {...headerProps}>{header}</BSModal.Header>
         ) : null}

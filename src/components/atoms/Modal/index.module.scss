@@ -1,0 +1,8 @@
+.modal_wrapper {
+  :global(.modal-dialog .modal-content .modal-header) {
+    border-bottom: 0;
+  }
+  :global(.modal-dialog .modal-content .modal-footer) {
+    border-top: 0;
+  }
+}

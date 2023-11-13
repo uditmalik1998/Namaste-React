@@ -3,8 +3,10 @@ import veg from "/public/images/veg.png";
 import nonveg from "/public/images/non-veg.png";
 import styles from "./index.module.scss";
 import Button from "../Button";
+import ItemPopup from "../ItemPopup";
+import useDeviceType from "../../../utils/hooks/useDeviceType";
 
-interface IRestaurantItemCard {
+export interface IRestaurantItemCard {
   dishName?: string;
   dishPrice?: number;
   discountPercentage?: string;
@@ -16,7 +18,9 @@ interface IRestaurantItemCard {
 }
 
 const RestaurantItemCard: FC<IRestaurantItemCard> = (props) => {
-  const [ismore, setIsMore] = useState<boolean>(true);
+  const [more, setMore] = useState<boolean>(true);
+  const [show, setShow] = useState<boolean>(false);
+  const {deviceType} = useDeviceType();
   const {
     dishName = "",
     dishPrice = 0,
@@ -28,6 +32,11 @@ const RestaurantItemCard: FC<IRestaurantItemCard> = (props) => {
     className = "",
   } = props;
   const discriptionLength = description?.length;
+
+  const handleClose = () => {
+        setShow((prev) => !prev);
+  }
+
   return (
     <div className={`${styles.rescard_container} ${className}`}>
       <div className={styles.card_details}>
@@ -52,15 +61,15 @@ const RestaurantItemCard: FC<IRestaurantItemCard> = (props) => {
             </div>
           ) : null}
         </div>
-        <p className={`${styles.discription} ${ismore ? styles.moreview : ""}`}>
+        <p className={`${styles.discription} ${more ? styles.moreview : ""}`}>
           {description}
         </p>
         {discriptionLength > 50 ? (
           <span
             className={`${styles.discription_more} ${
-              ismore ? "" : styles.morehide
+              more ? "" : styles.morehide
             }`}
-            onClick={() => setIsMore((prev) => !prev)}
+            onClick={() => setMore((prev) => !prev)}
           >
             More
           </span>
@@ -72,8 +81,9 @@ const RestaurantItemCard: FC<IRestaurantItemCard> = (props) => {
           src={`${process.env.REACT_APP_LOGO_URL}${imageId}`}
           alt="..."
         />
-        <Button btnText={"ADD"} className={styles.item_btn} />
+        <Button btnText={"ADD"} className={styles.item_btn} onClick={() => setShow(true)}/>
       </div>
+      <ItemPopup show={show} handleClose={handleClose} data={props} deviceType={deviceType}/>
     </div>
   );
 };
