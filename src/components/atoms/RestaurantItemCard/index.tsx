@@ -1,10 +1,10 @@
 import React, { FC, useState } from "react";
+import { useDispatch } from "react-redux";
+import { showToast } from "../../../../store/Toast/ToastSlice";
 import veg from "/public/images/veg.png";
 import nonveg from "/public/images/non-veg.png";
 import styles from "./index.module.scss";
 import Button from "../Button";
-import ItemPopup from "../ItemPopup";
-import useDeviceType from "../../../utils/hooks/useDeviceType";
 
 export interface IRestaurantItemCard {
   dishName?: string;
@@ -19,8 +19,8 @@ export interface IRestaurantItemCard {
 
 const RestaurantItemCard: FC<IRestaurantItemCard> = (props) => {
   const [more, setMore] = useState<boolean>(true);
-  const [show, setShow] = useState<boolean>(false);
-  const {deviceType} = useDeviceType();
+
+  const dispatch = useDispatch();
   const {
     dishName = "",
     dishPrice = 0,
@@ -32,10 +32,6 @@ const RestaurantItemCard: FC<IRestaurantItemCard> = (props) => {
     className = "",
   } = props;
   const discriptionLength = description?.length;
-
-  const handleClose = () => {
-        setShow((prev) => !prev);
-  }
 
   return (
     <div className={`${styles.rescard_container} ${className}`}>
@@ -81,9 +77,14 @@ const RestaurantItemCard: FC<IRestaurantItemCard> = (props) => {
           src={`${process.env.REACT_APP_LOGO_URL}${imageId}`}
           alt="..."
         />
-        <Button btnText={"ADD"} className={styles.item_btn} onClick={() => setShow(true)}/>
+        <Button
+          btnText={"ADD"}
+          className={styles.item_btn}
+          onClick={() =>
+            dispatch(showToast({ show: true, toastContent: "Item Added" }))
+          }
+        />
       </div>
-      <ItemPopup show={show} handleClose={handleClose} data={props} deviceType={deviceType}/>
     </div>
   );
 };

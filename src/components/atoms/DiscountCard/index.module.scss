@@ -24,7 +24,7 @@
   }
   .discount_discription {
     color: #93959f;
-    @include toRem(font-size, 13);
+    @include toRem(font-size, 12);
     @include toRem(margin-top, 4);
     .discount_code {
       border-left: 1px solid #93959f;

@@ -1,0 +1,26 @@
+@import "../../../utils/partical/mixins";
+
+.toast_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  position: fixed;
+  @include toRem(top, 70);
+  @include toRem(left, 640);
+  z-index: 100;
+  .toast_content {
+    margin: 0px;
+    @include toRem(padding, 5);
+  }
+  .tick_icon {
+    @include toRem(width, 30);
+    @include toRem(padding, 5);
+  }
+}
+
+@media (max-width: 480px) {
+  .toast_wrapper {
+    @include toRem(left, 150);
+  }
+}
