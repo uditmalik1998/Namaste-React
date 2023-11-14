@@ -1,0 +1,19 @@
+@import "../../../utils/partical/mixins";
+
+.footer_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .footer_container {
+    @include toRem(padding, 12);
+    .author_name {
+      color: #fc8019;
+    }
+  }
+  .footer_border {
+    @include toRem(height, 1);
+    @include toRem(min-width, 1066);
+    border-top: 1px solid #e5e4e4;
+  }
+}

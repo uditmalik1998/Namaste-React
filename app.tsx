@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import Header from "./src/components/atoms/Header/index";
+import Footer from "./src/components/atoms/Footer/index";
 import ErrorBoundary from "./src/components/atoms/Error/index";
 import store from "./store/index";
 import { Provider, useSelector } from "react-redux";
@@ -42,6 +43,7 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<h1>Loading...</h1>}>
             <Body />
+            <Footer />
           </Suspense>
         ),
       },
@@ -66,6 +68,7 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<h2>Loading...</h2>}>
             <RestaurantItem />
+            <Footer />
           </Suspense>
         ),
       },

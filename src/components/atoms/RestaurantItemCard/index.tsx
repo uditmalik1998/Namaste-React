@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import { useDispatch } from "react-redux";
-import { showToast } from "../../../../store/Toast/ToastSlice";
+import { showToast } from "../../../../store/ToastSlice";
+import { addItem } from "../../../../store/CartSlice";
 import veg from "/public/images/veg.png";
 import nonveg from "/public/images/non-veg.png";
 import styles from "./index.module.scss";
@@ -15,6 +16,7 @@ export interface IRestaurantItemCard {
   imageId?: string;
   isVeg?: string;
   className?: string;
+  itemId?: string;
 }
 
 const RestaurantItemCard: FC<IRestaurantItemCard> = (props) => {
@@ -80,9 +82,10 @@ const RestaurantItemCard: FC<IRestaurantItemCard> = (props) => {
         <Button
           btnText={"ADD"}
           className={styles.item_btn}
-          onClick={() =>
-            dispatch(showToast({ show: true, toastContent: "Item Added" }))
-          }
+          onClick={() => {
+            dispatch(showToast({ show: true, toastContent: "Item Added" }));
+            dispatch(addItem(props));
+          }}
         />
       </div>
     </div>

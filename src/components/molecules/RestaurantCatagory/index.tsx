@@ -59,6 +59,7 @@ const RestaurantCategory: FC<IRestaurantCategory> = (props) => {
                       description={res?.card?.info?.description}
                       isVeg={res?.card?.info?.itemAttribute?.vegClassifier}
                       couponCode={res?.card?.info?.offerTags?.[0]?.subTitle}
+                      itemId={res?.card?.info?.id}
                     />
                   );
                 })}
